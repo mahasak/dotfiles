@@ -52,6 +52,22 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'ryanoasis/vim-devicons' " not working with current font
 
 " Generic Programming Support 
+Plug 'Shougo/deoplete.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Townk/vim-autoclose'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-test/vim-test'
+Plug 'vim-syntastic/syntastic'
+
+" Editor 
+Plug 'reedes/vim-pencil'
+Plug 'tpope/vim-markdown'
+Plug 'jtratner/vim-flavored-markdown'
+Plug 'dpelle/vim-LanguageTool'
+
+" JS Support
+Plug 'maksimr/vim-jsbeautify'
 
 " TypeScript Support
 Plug 'jb55/typescript-ctags'
@@ -91,6 +107,10 @@ let g:elite_mode=1
 set mouse=a
 let g:NERDTreeMouseMode=3
 
+" Personalise Shortcut
+map <C-s> :w!<CR>
+map <C-r> :source ~/.vimrc<CR>
+
 " Vim-Airline Configuration
 let g:airline#extensions#tabline#enabled = 1
 let g:hybrid_custom_term_colors = 1
@@ -125,3 +145,45 @@ let g:tagbar_type_typescript = {
     \ 'e:enums',
   \ ]
 \ }
+
+" deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+
+" Snippet
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+" Vim-test
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+" JS Beautify
+map <c-f> :call JsBeautify()<cr>
+autocmd FileType javascript vnoremap <buffer>  <c-f> :call RangeJsBeautify()<cr>
+autocmd FileType json vnoremap <buffer> <c-f> :call RangeJsonBeautify()<cr>
+autocmd FileType jsx vnoremap <buffer> <c-f> :call RangeJsxBeautify()<cr>
+autocmd FileType html vnoremap <buffer> <c-f> :call RangeHtmlBeautify()<cr>
+autocmd FileType css vnoremap <buffer> <c-f> :call RangeCSSBeautify()<cr>
+
+" Syntastic Configuration
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_enable_elixir_checker = 1
+" let g:syntastic_elixir_checkers = ["elixir"]
+
+" Language Tool
+let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
+let g:languagetool_jar  = '/usr/local/Cellar/languagetool/5.0/libexec/languagetool-commandline.jar'
