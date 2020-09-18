@@ -63,11 +63,30 @@ if (has('termguicolors'))
   set termguicolors
 endif
 let g:material_terminal_italics = 1
-let g:material_theme_style = 'darker'
+let g:material_theme_style = 'default'
 
 colorscheme material
-" Common setting
+
+" Show linenumbers
+set number
+set ruler
+
+" Set Proper Tabs
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+
+" Always display the status line
+set laststatus=2
+
+" Enable highlighting of the current line
+set cursorline
 set encoding=UTF-8
+
+" Enable Elite mode, No ARRRROWWS!!!!
+let g:elite_mode=1
+
 " Mouse Integration
 set mouse=a
 let g:NERDTreeMouseMode=3
