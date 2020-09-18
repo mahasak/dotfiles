@@ -44,14 +44,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 
-" Windows & Appearance
+" Utility
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
+Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'ryanoasis/vim-devicons' " not working with current font
 
 " Generic Programming Support 
-Plug 'jakedouglas/exuberant-ctags'
+
+" TypeScript Support
+Plug 'jb55/typescript-ctags'
 call plug#end()
 
 
@@ -69,6 +72,13 @@ set encoding=UTF-8
 set mouse=a
 let g:NERDTreeMouseMode=3
 
+" Vim-Airline Configuration
+let g:airline#extensions#tabline#enabled = 1
+let g:hybrid_custom_term_colors = 1
+let g:hybrid_reduced_contrast = 1
+map <C-j> :bprevious<CR>
+map <C-k> :bnext<CR>
+
 " MERDTree setup
 autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
@@ -81,3 +91,18 @@ let g:NERDTreeGitStatusConcealBrackets = 1
 
 " Tagbar
 nmap <C-m> :TagbarToggle<CR>
+
+" Tagbar Typescript
+let g:tagbar_type_typescript = {
+  \ 'ctagstype': 'typescript',
+  \ 'kinds': [
+    \ 'c:classes',
+    \ 'n:modules',
+    \ 'f:functions',
+    \ 'v:variables',
+    \ 'v:varlambdas',
+    \ 'm:members',
+    \ 'i:interfaces',
+    \ 'e:enums',
+  \ ]
+\ }
