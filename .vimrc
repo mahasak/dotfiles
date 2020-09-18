@@ -66,6 +66,11 @@ Plug 'tpope/vim-markdown'
 Plug 'jtratner/vim-flavored-markdown'
 Plug 'dpelle/vim-LanguageTool'
 
+" Git Support
+Plug 'kablamo/vim-git-log'
+Plug 'tpope/vim-fugitive'
+Plug 'gregsexton/gitv'
+
 " JS Support
 Plug 'maksimr/vim-jsbeautify'
 
@@ -184,6 +189,6 @@ let g:syntastic_check_on_open = 1
 " let g:syntastic_enable_elixir_checker = 1
 " let g:syntastic_elixir_checkers = ["elixir"]
 
-" Language Tool
+" Language Toolx    rwe 
 let g:pencil#wrapModeDefault = 'soft'   " default is 'hard'
 let g:languagetool_jar  = '/usr/local/Cellar/languagetool/5.0/libexec/languagetool-commandline.jar'
