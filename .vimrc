@@ -124,6 +124,7 @@ autocmd VimEnter * wincmd p
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusConcealBrackets = 1
 let NERDTreeShowHidden = 1
+let NERDTreeIgnore = ['\.git[[dir]]', 'node_modules[[dir]]']
 
 " Tagbar
 nmap <C-m> :TagbarToggle<CR>
