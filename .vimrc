@@ -19,6 +19,7 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'djoshea/vim-autoread'
 "Plug 'ryanoasis/vim-devicons' " not working with current font
@@ -72,6 +73,7 @@ autocmd BufRead,BufNewFile * set signcolumn=yes
 autocmd FileType tagbar,nerdtree set signcolumn=no
 set foldmethod=indent
 set nofoldenable
+set tags=tags
 
 " Show linenumbers
 set number
