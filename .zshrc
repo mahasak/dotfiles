@@ -7,7 +7,9 @@ fi
 
 # coreutils
 PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-
+# flutters
+FLUTTER_HOME="/Users/mpijittum/sdks/flutter"
+PATH="$FLUTTER_HOME/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mpijittum/.dotfiles/oh-my-zsh"
 
