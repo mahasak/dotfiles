@@ -13,7 +13,8 @@ call plug#begin("~/.vim/plugged")
   Plug 'dracula/vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-
+  " Integration
+  Plug 'wakatime/vim-wakatime'
   " Utility
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
