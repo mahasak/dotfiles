@@ -7,7 +7,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'peitalin/vim-jsx-typescript'  
   " File Explorer
   Plug 'scrooloose/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
+  " Plug 'ryanoasis/vim-devicons'
   Plug 'pacha/vem-tabline'
   " theme
   Plug 'dracula/vim'

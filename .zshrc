@@ -12,7 +12,10 @@ FLUTTER_HOME="/Users/mpijittum/sdks/flutter"
 PATH="$FLUTTER_HOME/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/mpijittum/.dotfiles/oh-my-zsh"
+export LC_ALL="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
 
+export PATH="$PATH:/Users/mpijittum/Library/Application Support/Coursier/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -126,7 +129,6 @@ fi
 export DENO_INSTALL="/Users/mpijittum/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
-eval "$(pyenv init -)"
 eval $(thefuck --alias wtf)
 
 # neovim
@@ -146,3 +148,18 @@ if [ -f '/Users/mpijittum/sdks/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
+
+. /usr/local/opt/asdf/asdf.sh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+eval $(thefuck --alias)
+export PATH="/usr/local/sbin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+#eval "$(pyenv init --path)"
+
+
+eval "$(pyenv init -)"
