@@ -1,25 +1,30 @@
 call plug#begin("~/.vim/plugged")
   " Language Client
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'  
   " File Explorer
   Plug 'scrooloose/nerdtree'
-  " Plug 'ryanoasis/vim-devicons'
+  " pairs
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'preservim/tagbar'
+  " File icons
+  Plug 'ryanoasis/vim-devicons'
   Plug 'pacha/vem-tabline'
   " theme
   Plug 'dracula/vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
   " Integration
-  Plug 'wakatime/vim-wakatime'
+  " Plug 'wakatime/vim-wakatime'
   " Utility
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   " Git
   Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
@@ -46,6 +51,20 @@ endif
 syntax enable
 colorscheme dracula
 let g:airline_theme='powerlineish'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#left_sep = ' '
+"let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#hunks#enabled=1
+let g:airline#extensions#branch#enabled=1
+" Your vimrc
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{FugitiveStatusline()}
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Integrated Terminal
 " " open new split panes to right and below
@@ -60,7 +79,7 @@ function! OpenTerminal()
   split term://zsh
   resize 10
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+nnoremap <c-n> :call OpenTerminal()<CR>FugitiveStatusline
 
 " Commentary
 autocmd FileType apache setlocal commentstring=#\ %s
@@ -82,8 +101,13 @@ autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
     \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
 " Automaticaly close nvim if NERDTree is only thing left open
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
