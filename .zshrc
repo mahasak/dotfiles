@@ -14,8 +14,8 @@ PATH="$FLUTTER_HOME/bin:$PATH"
 export ZSH="/Users/mpijittum/.dotfiles/oh-my-zsh"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
-
-export PATH="$PATH:/Users/mpijittum/Library/Application Support/Coursier/bin"
+export N_PREFIX="$HOME/.n"
+export PATH="$N_PREFIX/bin;$PATH:/Users/mpijittum/Library/Application Support/Coursier/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -150,7 +150,7 @@ if [ -f '/Users/mpijittum/sdks/google-cloud-sdk/completion.zsh.inc' ]; then . '/
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/postgresql@10/bin:$PATH"
 
-. /usr/local/opt/asdf/asdf.sh
+/usr/local/opt/asdf/asdf.sh
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
