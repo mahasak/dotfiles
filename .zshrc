@@ -15,6 +15,8 @@ export ZSH="/Users/mpijittum/.dotfiles/oh-my-zsh"
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 export N_PREFIX="$HOME/.n"
+export JAVA_HOME="/opt/homebrew/opt/openjdk"
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export PATH="$N_PREFIX/bin;$PATH:/Users/mpijittum/Library/Application Support/Coursier/bin"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

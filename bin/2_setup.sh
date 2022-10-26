@@ -97,6 +97,12 @@ brew install nvm
 brew install tmux
 brew install docker
 brew install postgresql
+
+brew install openjdk
+append_to_zshrc 'export JAVA_HOME="/opt/homebrew/opt/openjdk"'
+append_to_zshrc 'export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"'
+source ~/.zshenv
+
 brew install ammonite-repl
 
 # install utilities
@@ -136,5 +142,12 @@ append_to_zshrc 'eval $(thefuck --alias)'
 
 # Install powerlevel10k
 #git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+source ~/.zshrc
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 append_to_zshrc 'source ~/powerlevel10k/powerlevel10k.zsh-theme'
+
+# Development tools
+brew install iterm2
+
+# Remove outdated versions from the cellar.
+brew cleanup
