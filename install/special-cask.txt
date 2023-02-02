@@ -1,0 +1,10 @@
+google-chrome
+keybase
+rectangle
+visual-studio-code
+slack
+spotify
+discord
+dropbox
+1password
+tldr

@@ -98,6 +98,14 @@ set laststatus=2
 set cursorline
 set encoding=UTF-8
 
+" copy command with yy
+let mapleader=";"
+set clipboard+=unnamed
+"noremap <Leader>y "*y
+"noremap <Leader>p "*p
+"noremap <Leader>Y "+y
+"noremap <Leader>P "+p
+
 " Enable Elite mode, No ARRRROWWS!!!!
 let g:elite_mode=1
 
