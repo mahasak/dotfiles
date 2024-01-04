@@ -10,6 +10,7 @@ call plug#begin("~/.vim/plugged")
   Plug 'scrooloose/nerdtree'
   " pairs
   Plug 'jiangmiao/auto-pairs'
+  "Plug 'windwp/nvim-autopairs'
   Plug 'preservim/tagbar'
   " File icons
   Plug 'ryanoasis/vim-devicons'
